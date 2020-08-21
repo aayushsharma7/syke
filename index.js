@@ -6,8 +6,7 @@ const google = require('google');
 
 
 
-const { giphy_API } = require('./config');
-const giphy = require('giphy-api')(giphy_API);
+
 
 const ms = require('ms');
 
