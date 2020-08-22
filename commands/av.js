@@ -5,6 +5,7 @@ module.exports = {
     description: "says av!",
     execute(msg, args){
         const member = msg.guild.member(user);
+        const user = msg.mentions.users.first();
         const embed = new Discord.MessageEmbed()
         
         .setTitle('Avatar')
