@@ -4,14 +4,13 @@ module.exports = {
     name: 'av',
     description: "says av!",
     execute(msg, args){
-        const member = msg.guild.member(user);
-        const user = msg.mentions.users.first();
+    
         const embed = new Discord.MessageEmbed()
         
         .setTitle('Avatar')
         .setAuthor(msg.author.username)
         .setColor('RANDOM')
-        .setImage(msg.member.displayAvatarURL())
+        .setImage(msg.author.displayAvatarURL())
 
     msg.channel.send(embed);
     }
