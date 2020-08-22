@@ -266,7 +266,7 @@ request(options, function(error, response, responseBody) {
         return;
     }
 
-    // Send result
+    
     
     msg.channel.send( urls[Math.floor(Math.random() * urls.length)]);
 });

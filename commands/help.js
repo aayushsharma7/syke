@@ -15,7 +15,7 @@ module.exports = {
             .setThumbnail(msg.author.displayAvatarURL())
             .setTitle('SYKE HELP')
             .setColor(0xFF0000)
-            .setImage('https://live.staticflickr.com/65535/49976767706_50ac2a3d15_c_d.jpg')
+            .setImage('https://flic.kr/p/2jyQKop')
             .setDescription('**These Are the Available Commands For Syke\n Bots Global Prefix is `?`\n\n Moderation:\n `ban` `kick` `clear` `mute(timed)` `warn`\n  Fun:\n  `meme` `embed` `youtube` `owner` `react` `image` `dumb` `ping` \n  Maths : \n `cal` `conv` **  ')
             .setFooter('More Commands coming soon :)');
             
