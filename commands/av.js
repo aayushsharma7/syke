@@ -8,7 +8,7 @@ module.exports = {
         .setTitle('Avatar')
         .setAuthor(msg.author.username)
         .setColor('RANDOM')
-        .setImage(msg.author.displayAvatarURL())
+        .setImage(msg.user.displayAvatarURL())
 
     msg.channel.send(embed);
     }
