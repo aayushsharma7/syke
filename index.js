@@ -105,6 +105,7 @@ bot.on('message', msg => {
             break;
         case 'ping':
             bot.commands.get('ping').execute(msg, args);
+            break;
         case 'joke':
             bot.commands.get('joke').execute(msg, args);
 
