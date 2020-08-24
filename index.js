@@ -7,6 +7,8 @@ const covid = require('novelcovid');
 const fetch = require('node-fetch');
 const querystring = require('querystring');
 const giveMeAJoke = require('discord-jokes');
+const { inspect } = require('util');
+
 
 
 
@@ -115,6 +117,10 @@ bot.on('message', msg => {
         case 'av':
             bot.commands.get('av').execute(msg, args);
             break;
+        case 'eval':
+            bot.commands.get('eval').execute(msg, args);
+            break;
+
         case 'urban':
             bot.commands.get('urban').execute(msg, args);
             break;
