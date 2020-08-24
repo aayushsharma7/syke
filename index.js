@@ -48,7 +48,7 @@ bot.on('ready', () => {
     
     setInterval(() => {
         const statuses = [
-            `?help`,
+            ` ?help`,
             
         ]
         const status = statuses[Math.floor(Math.random() * statuses.length)]
