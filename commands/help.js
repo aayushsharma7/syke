@@ -16,7 +16,7 @@ module.exports = {
             .setTitle('SYKE HELP')
             .setColor('RANDOM')
 
-            .setDescription('** Bots Global Prefix is `?`\n Available Commands \n\n Moderation:\n `ban` `kick` `clear` `mute(timed)` `warn`\n\n  Fun:\n  `meme` `image` `ping` `joke` `urban` \n  Maths : \n\n `cal` `conv` \n Covid 19 : \n\n `covid` **  ')
+            .setDescription('** Bots Global Prefix is `?`\n Available Commands \n\n Moderation:\n `ban` `kick` `clear` `mute(timed)` `warn`\n Fun:\n  `meme` `image` `ping` `joke` `urban` \n  Maths : \n `cal` `conv` \n Covid 19 : \n `covid` **  ')
             
             
 
