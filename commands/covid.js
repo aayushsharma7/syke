@@ -6,10 +6,10 @@ const covid = require('novelcovid');
 module.exports = {
     name: 'covid',
     description: "says covid!",
-    execute , async (msg, args){
+    execute: async (msg, args) => {
         const covidStats = await covid.all()
 
-        return msg.channel.send(new Disocord.MessageEmbed()
+        return msg.channel.send(new MessageEmbed()
             .setTitle('Covid19 (CORONAVIRUS) Stats')
             .setColor('RANDOM')
             .addFields(
@@ -31,3 +31,4 @@ module.exports = {
         
     }
 }
+
