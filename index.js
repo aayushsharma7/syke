@@ -68,14 +68,21 @@ for(const file of commandFiles){
     bot.commands.set(command.name, command);
 }
 
-bot.on('guildMemberAdd', member => {
+bot.on('guildMemberAdd', async member => {
+    try {
+        const role = member.guild.roles.cache.get('713358552281907220');
+        if (!role) return;
+        else await member.roles.add(role.id);
+      } catch (error) {
+          return console.error(error);
+      };
 
     const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
     if (!channel) return;
 
     channel.send(`:wave: Ohayo ${member}\n  Welcome to Obru's Server, Please make sure to check out <#713310905114296392>`)
 });
-bot.on('guildMemberRemove', member => {
+bot.on('guildMemberRemove',  member => {
 
     const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
     if (!channel) return;
