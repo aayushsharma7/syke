@@ -110,9 +110,9 @@ bot.on('message', msg => {
         case 'av':
             bot.commands.get('av').execute(msg, args);
             break;
-        case 'dic':
-            bot.commands.get('dic').execute(msg, args);
-
+        case 'urban':
+            bot.commands.get('urban').execute(msg, args);
+            break;
 
         case 'cal':
             bot.commands.get('cal').execute(msg, args);
