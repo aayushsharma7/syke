@@ -11,8 +11,8 @@ module.exports = {
         msg.channel.send('**Message Has Been Sent to You In DMs!**');
         const Embed = new Discord.MessageEmbed()
              
-            .setAuthor(`${msg.guild.me.displayName}`, msg.guild.iconURL())
-            .setThumbnail(msg.guild.me.displayAvatarURL())
+            .setAuthor(`${msg.guild.name}`, msg.guild.iconURL())
+            .setThumbnail(msg.author.displayAvatarURL())
             .setTitle('SYKE HELP')
             .setColor('RANDOM')
 
