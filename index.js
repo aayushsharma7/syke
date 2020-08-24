@@ -48,9 +48,8 @@ bot.on('ready', () => {
     
     setInterval(() => {
         const statuses = [
-            `Myself In The Mirror`,
-            `A FLY IRRITATE ME`,
-            `YOU POOP`,
+            `?help`,
+            
         ]
         const status = statuses[Math.floor(Math.random() * statuses.length)]
         bot.user.setActivity(status, { type: "WATCHING"})
