@@ -45,7 +45,18 @@ function getUserFromMention(mention) {
 };
 bot.on('ready', () => {
     console.log('This Bot is online!');
-    bot.user.setActivity('?help');
+    
+    setInterval(() => {
+        const statuses = [
+            `Myself In The Mirror`,
+            `A FLY IRRITATE ME`,
+            `YOU POOP`,
+        ]
+        const status = statuses[Math.floor(Math.random() * statuses.length)]
+        bot.user.setActivity(status, { type: "WATCHING"})
+
+
+    }, 5000)
 })
 
 const fs = require("fs");
