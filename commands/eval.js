@@ -10,7 +10,7 @@ module.exports = {
     execute(msg, args){
         const command = args.slice(1).join(" ")
 
-        if(msg.author.id !== "335432353650442240") return msg.channel.send("You Do Not Have Permissins!")
+        if(msg.author.id !== "335432353650442240") return msg.channel.send("**You Do Not Have Permission To Do So!**")
         if(!command) return msg.channel.send("Specify something to eval!")
 
         try {
@@ -20,7 +20,7 @@ module.exports = {
             .setTitle('Evaluated')
             .addField(`To Eval`, `\`\`\`${command}\`\`\``)
             .addField(`Evaled`, `\`\`\`js\n${inspect(evaled, { depth: 0})}\`\`\``)
-            .addField(`Type Of`, `\`\`\` ${typeof(evaled)}\`\`\``)
+            .addField(`Type Of`, `\`\`\`${typeof(evaled)}\`\`\``)
             msg.channel.send(embed)
         } catch (error) {
             const embed = new Discord.MessageEmbed()
