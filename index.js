@@ -4,6 +4,8 @@ const bot = new Client();
 const got = require('got');
 const google = require('google');
 const covid = require('novelcovid');
+const fetch = require('node-fetch');
+const querystring = require('querystring');
 
 
 
@@ -101,12 +103,16 @@ bot.on('message', msg => {
             bot.commands.get('meme').execute(msg, args);
             break;
         case 'ping':
-            bot.commands.get('ping').execute(msg, args);  
+            bot.commands.get('ping').execute(msg, args);
+            
         
             break;
         case 'av':
             bot.commands.get('av').execute(msg, args);
             break;
+        case 'dic':
+            bot.commands.get('dic').execute(msg, args);
+
 
         case 'cal':
             bot.commands.get('cal').execute(msg, args);
@@ -117,13 +123,6 @@ bot.on('message', msg => {
         case 'google':
             bot.commands.get('google').execute(msg, args);   
             break;    
-
-        case 'dumb':
-            bot.commands.get('dumb').execute(msg, args);
-            break;
-        case 'die':
-            bot.commands.get('die').execute(msg, args);   
-            break;
         case 'covid':
             bot.commands.get('covid').execute(msg, args);   
             break;
@@ -139,9 +138,7 @@ bot.on('message', msg => {
             image(msg);
             break;
 
-        case 'revive':
-            bot.commands.get('revive').execute(msg, args);
-            break;
+        
         case 'warn':
             const mentioned = getUserFromMention(args[1]);
 
@@ -163,10 +160,7 @@ bot.on('message', msg => {
             msg.react('💩');
             break;
 
-        case 'rebirth':
-            bot.commands.get('rebirth').execute(msg, args);
-
-            break;   
+         
        
 
 
@@ -207,42 +201,19 @@ bot.on('message', msg => {
      
        
             break;
-            
-            
-            
-
-
-
+           
         case 'help':
             bot.commands.get('help').execute(msg, args);
             
         break;
 
-        case 'kill':
-            bot.commands.get('kill').execute(msg, args);
-            break;
-            
-        case 'whois':
-            bot.commands.get('whois').execute(msg, args);
-            break;
-
-        
-            
-        case 'whoami':
-            bot.commands.get('whoami').execute(msg, args);
-            break;
         
        
         case 'ban':
             bot.commands.get('ban').execute(msg, args);
             break;
 
-        case 'hi':
-            bot.commands.get('hi').execute(msg, args);
-            break;
-        case 'youtube':
-            bot.commands.get('youtube').execute(msg, args);
-            break;
+
         case 'info':
             if (args[1] === 'version') {
                 msg.channel.send('version 1.0.1');

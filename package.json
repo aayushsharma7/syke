@@ -16,7 +16,9 @@
     "google": "^2.1.0",
     "got": "^11.5.2",
     "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
     "novelcovid": "^3.0.0",
+    "querystring": "^0.2.0",
     "request": "^2.88.2"
   }
 }
