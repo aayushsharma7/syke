@@ -1,28 +1,34 @@
 const Discord = require('discord.js');
-const bot = new Discord.Client()
-=;
+const {Client, Attachment, MessageEmbed} = require('discord.js');
+const bot = new Discord.Client();
+
 module.exports = {
     name: 'av',
     description: "says av!",
     execute: async(msg, args)=> {
-        let user;
-  
-  if (msg.mentions.users.first()) {
-    user = msg.mentions.users.first();
-  } else if (args[0]) {
-    user = msg.guild.members.cache.get(args[0]).user;
-  } else {
-    user = msg.author;
-  }
-  let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
-  const embed = new Discord.MessageEmbed()
+        const user = msg.mentions.users.first();
+    if (user) {
+    let avatar = user.displayAvatarURL({size: 4096, dynamic: true});
+    const embed = new Discord.MessageEmbed()
         
-  .setTitle(`${user.tag} avatar`)
+   .setTitle(`${user.tag} Avatar`)
   .setDescription(`[Avatar URL of **${user.tag}**](${avatar})`)
   .setColor('RANDOM')
   .setImage(avatar)
   
-
     msg.channel.send(embed);
+} else { 
+    
+    
+    const embed = new Discord.MessageEmbed() 
+  .setTitle(`Avatar`)
+  .setDescription(msg.author.username, 'Avatar')
+  .setColor('RANDOM')
+  .setImage(msg.author.displayAvatarURL({size: 4096, dynamic: true}))
+ 
+   msg.channel.send(embed);
+}
     }
 }
+    
+
