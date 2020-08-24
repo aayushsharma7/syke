@@ -6,6 +6,7 @@ const google = require('google');
 const covid = require('novelcovid');
 const fetch = require('node-fetch');
 const querystring = require('querystring');
+const giveMeAJoke = require('discord-jokes');
 
 
 
@@ -104,6 +105,9 @@ bot.on('message', msg => {
             break;
         case 'ping':
             bot.commands.get('ping').execute(msg, args);
+        case 'joke':
+            bot.commands.get('joke').execute(msg, args);
+
             
         
             break;
