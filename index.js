@@ -3,6 +3,7 @@ const {Client, Attachment, MessageEmbed} = require('discord.js');
 const bot = new Client();
 const got = require('got');
 const google = require('google');
+const covid = require('novelcovid');
 
 
 
@@ -97,7 +98,11 @@ bot.on('message', msg => {
             break;
         case 'die':
             bot.commands.get('die').execute(msg, args);   
-            break; 
+            break;
+        case 'covid':
+            bot.commands.get('covid').execute(msg, args);   
+            break;
+
 
 
         case 'whoareyou':
