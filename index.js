@@ -60,10 +60,10 @@ for(const file of commandFiles){
 
 bot.on('guildMemberAdd', member => {
 
-    const channel = member.guild.channels.cache.find(channel => channel.name === "welcome");
+    const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
     if (!channel) return;
 
-    channel.send(`Welcome to the Server,${member}, Please Read the Rules in the Rules Channel!`)
+    channel.send(`:wave: Ohayo {user}${member}\n  Welcome to ${msg.guild.name}, Please make sure to check out #📄-rules`)
 });
 
 
