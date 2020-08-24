@@ -12,7 +12,7 @@ module.exports = {
         const Embed = new Discord.MessageEmbed()
              
             .setAuthor(`${msg.guild.me.displayName}`, msg.guild.iconURL())
-            .setThumbnail(msg.author.displayAvatarURL())
+            .setThumbnail(msg.bot.displayAvatarURL())
             .setTitle('SYKE HELP')
             .setColor('RANDOM')
 
