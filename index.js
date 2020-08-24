@@ -63,9 +63,15 @@ bot.on('guildMemberAdd', member => {
     const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
     if (!channel) return;
 
-    channel.send(`:wave: Ohayo {user}${member}\n  Welcome to ${msg.guild.name}, Please make sure to check out #📄-rules`)
+    channel.send(`:wave: Ohayo ${member}\n  Welcome to Obru's Server, Please make sure to check out <#713310905114296392>`)
 });
+bot.on('guildMemberRemove', member => {
 
+    const channel = member.guild.channels.cache.find(channel => channel.name === "👋-welcome");
+    if (!channel) return;
+
+    channel.send(`Oh no... ${member} just left the server :(\n Maybe it wasn't meant to be....`)
+});
 
 
 bot.on('message', msg => {
