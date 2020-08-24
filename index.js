@@ -52,7 +52,7 @@ bot.on('ready', () => {
             
         ]
         const status = statuses[Math.floor(Math.random() * statuses.length)]
-        bot.user.setActivity(status, { type: "WATCHING"})
+        bot.user.setActivity(status, { type: "STREAMING"})
 
 
     }, 5000)
