@@ -6,7 +6,7 @@ const covid = require('novelcovid');
 module.exports = {
     name: 'covid',
     description: "says covid!",
-    execute(msg, args){
+    execute , async (msg, args){
         const covidStats = await covid.all()
 
         return msg.channel.send(new Disocord.MessageEmbed()
