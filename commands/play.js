@@ -11,7 +11,7 @@ module.exports = {
     execute: async (msg, args) => {
         if(msg.author.bot) return
         const searchString = args.slice(1).join(' ')
-        const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : ''
+        const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 
         
         
@@ -22,7 +22,7 @@ module.exports = {
         if(!permissions.has('SPEAK')) return msg.channel.send("I DONT HAVE PERMISSIONS TO SPEAK IN THIS CHANNEL")
 
         try{
-            var video = await youtube.getVideoByID(url)
+            var video = await youtube.getVideo(url)
 
         } catch {
             try{
