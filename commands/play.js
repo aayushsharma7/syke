@@ -10,7 +10,11 @@ module.exports = {
     name: 'play',
     description: "says play!",
     execute: async (msg, args) => {
+
         if(msg.author.bot) return
+
+        if(msg.content.startsWith(`${PREFIX}play`)){
+
         const serverQueue = queue.get(msg.guild.id)
 
         
@@ -59,8 +63,37 @@ module.exports = {
             return msg.channel.send(`**${song.title}** has been added to the queue`)
         }
         return undefined
-    }
+        
+    
+} else if(msg.content.startsWith(`${PREFIX}stop`)){
+    if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to stop the music")
+        if(!serverQueue) return msg.channel.send("THERE IS NOTHING PLAYING")
+        serverQueue.songs = []
+        serverQueue.connection.dispatcher.end()
+        msg.channel.send("I have stopped the music for you")
+
+
+        return undefined
+
+} else if(msg.content.startsWith(`${PREFIX}skip`)){
+    if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to skip")
+                if(!serverQueue) return msg.channel.send("There is nothing playing")
+                serverQueue.connection.dispatcher.end()
+                msg.channel.send("Skipped the song")
+                return undefined
+
 }
+
+
+
+
+
+
+    }
+    
+}
+
+
         
         function play(song, guild){
            const serverQueue = queue.get(guild.id)
@@ -83,4 +116,4 @@ module.exports = {
         dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
        }
     
-
+    
