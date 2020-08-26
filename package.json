@@ -23,6 +23,7 @@
     "opusscript": "0.0.7",
     "querystring": "^0.2.0",
     "request": "^2.88.2",
+    "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^3.2.2"
   }
 }

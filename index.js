@@ -9,6 +9,9 @@ const querystring = require('querystring');
 const giveMeAJoke = require('discord-jokes');
 const { inspect } = require('util');
 const ytdl = require('ytdl-core');
+const Youtube = require('simple-youtube-api');
+const youtube = new Youtube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
+
 
 
 
