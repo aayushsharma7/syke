@@ -30,7 +30,7 @@ module.exports = {
                 var video = await youtube.getVideoByID(videos[0].id);
 
             } catch {
-                return msg.channel.send(" I could not find any results")
+                return msg.channel.send('I could not find any results')
             }
         }
 
