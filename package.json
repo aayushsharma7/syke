@@ -13,13 +13,16 @@
     "cheerio": "^1.0.0-rc.3",
     "discord-jokes": "^1.0.12",
     "discord.js": "^12.2.0",
+    "ffmpeg-static": "^4.2.7",
     "giphy-api": "^2.0.1",
     "google": "^2.1.0",
     "got": "^11.5.2",
     "ms": "^2.1.2",
     "node-fetch": "^2.6.0",
     "novelcovid": "^3.0.0",
+    "opusscript": "0.0.7",
     "querystring": "^0.2.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "ytdl-core": "^3.2.2"
   }
 }

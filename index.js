@@ -8,6 +8,8 @@ const fetch = require('node-fetch');
 const querystring = require('querystring');
 const giveMeAJoke = require('discord-jokes');
 const { inspect } = require('util');
+const ytdl = require('ytdl-core');
+
 
 
 
@@ -114,6 +116,13 @@ bot.on('message', msg => {
             
         
             break;
+        case 'play':
+            bot.commands.get('play').execute(msg, args);
+            break;
+        case 'stop':
+            bot.commands.get('stop').execute(msg, args);
+            break;    
+
         case 'av':
             bot.commands.get('av').execute(msg, args);
             break;
