@@ -23,7 +23,7 @@ module.exports = {
 
         try{
             
-            var video = await youtube.getVideoByID(url)
+            var video = await youtube.getVideo(url)
 
         } catch {
             try{
