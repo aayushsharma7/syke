@@ -20,20 +20,31 @@ module.exports = {
         const permissions = voiceChannel.permissionsFor(msg.client.user)
         if(!permissions.has('CONNECT')) return msg.channel.send("I DONT HAVE PERMISSION TO JOIN THE VOICECHANNEL")
         if(!permissions.has('SPEAK')) return msg.channel.send("I DONT HAVE PERMISSIONS TO SPEAK IN THIS CHANNEL")
+        
+        if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
+            const playlist = await youtube.getPlaylist(url);
+            const videos = await playlist.getVideos();
 
-        try{
-            console.log(searchString)
-            var video = await youtube.getVideo(searchString)
-
-        } catch {
-            try{
-                var videos = await youtube.searchVideos(searchString, 1);
-                var video = await youtube.getVideoByID(videos[0].id);
-
-            } catch {
-                return msg.channel.send('I could not find any results')
+            for (const video of Object.values(videos)) {
+                const video2 = await youtube.getVideoByID(video.id);
+                await handleVideo(video2, message, channel, true);
             }
-        }
+            return message.channel.send(`**Playlist \`${playlist.title}\` has been added to the queue!**`);
+        } else {
+            try {
+                var video = await youtube.getVideo(url);
+            } catch (error) {
+                try {
+                    var videos = await youtube.searchVideos(searchString, 1);
+                    var video = await youtube.getVideoByID(videos[0].id);
+                } catch (err) {
+                    console.error(err)
+                    return message.channel.send('❌ **No Matches!**')
+                }
+            }
+
+       
+        
 
         const song = {
             id: video.id,
@@ -65,3 +76,4 @@ module.exports = {
 
        }
 
+    }
