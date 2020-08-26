@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const {Client, Attachment, MessageEmbed} = require('discord.js');
 const bot = new Client();
 const ytdl = require('ytdl-core');
-const YouTube = require('simple-youtube-api');
+const Youtube = require('simple-youtube-api');
 const youtube = new Youtube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
 
 module.exports = {
