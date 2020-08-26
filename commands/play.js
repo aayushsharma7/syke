@@ -35,11 +35,7 @@ module.exports = {
             }
         }
 
-        const song = {
-            id: video.id,
-            title: video.title,
-            url: `https://www.youtube.com/watch?v=${video.id}`
-        }
+        
 
         try{
             var connection = await voiceChannel.join()
