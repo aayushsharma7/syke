@@ -10,8 +10,8 @@ const giveMeAJoke = require('discord-jokes');
 const { inspect } = require('util');
 const ytdl = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
-const queue = new Map()
+const youtube = new YouTube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo");
+const queue = new Map();
 
 
 

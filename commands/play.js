@@ -4,6 +4,7 @@ const bot = new Client();
 const ytdl = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
+const queue = new Map();
 
 module.exports = {
     name: 'play',

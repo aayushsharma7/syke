@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const {Client, Attachment, MessageEmbed} = require('discord.js');
 const bot = new Client();
 const ytdl = require('ytdl-core');
+const queue = new Map();
 
 module.exports = {
     name: 'stop',
@@ -30,11 +31,12 @@ module.exports = {
         if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to stop the music")
         if(!serverQueue) return msg.channel.send("THERE IS NOTHING PLAYING")
         serverQueue.songs = []
+        serverQueue.connection.dispatcher.end()
+        msg.channel.send("I have stopped the music for you")
 
-        return msg.channel.send("LEFT THE VOICE CHANNEL")
-        
 
-       } 
+        return undefined
+        } 
 
        
 
