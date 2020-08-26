@@ -26,8 +26,8 @@ module.exports = {
 
         } catch {
             try{
-                var videos = await youtube.searchVideos(searchString, 1)
-                var video = await youtube.getVideoByID(videos[0].id)
+                var videos = await youtube.searchVideos(searchString, 1);
+                var video = await youtube.getVideoByID(videos[0].id);
 
             } catch {
                 return msg.channel.send(" I could not find any results")
@@ -36,7 +36,7 @@ module.exports = {
 
         const song = {
             id: video.id,
-            title: video.title,
+            title: Util.escapeMarkdown(video.title),
             url: `https://www.youtube.com/watch?v=${video.id}`
         }
 
