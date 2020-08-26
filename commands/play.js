@@ -22,6 +22,7 @@ module.exports = {
         if(!permissions.has('SPEAK')) return msg.channel.send("I DONT HAVE PERMISSIONS TO SPEAK IN THIS CHANNEL")
 
         try{
+            console.log(searchString)
             var video = await youtube.getVideo(url)
 
         } catch {
