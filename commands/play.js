@@ -8,11 +8,11 @@ module.exports = {
     description: "says play!",
     execute: async (msg, args) => {
         if(msg.author.bot) return
-        const user = msg.mentions.users.first();
+        
         
         const voiceChannel = msg.member.voice.channel
         if(!voiceChannel) return msg.channel.send("You need to be in a voice channel!")
-        const permissions = voiceChannel.permissionsFor(msg.bot.user)
+        const permissions = voiceChannel.permissionsFor(msg.client.user)
         if(!permissions.has('CONNECT')) return msg.channel.send("I DONT HAVE PERMISSION TO JOIN THE VOICECHANNEL")
         if(!permissions.has('SPEAK')) return msg.channel.send("I DONT HAVE PERMISSIONS TO SPEAK IN THIS CHANNEL")
 
@@ -26,7 +26,7 @@ module.exports = {
 
 
         }
-        const dispatcher = connection.play(ytdl(arfs[1]))
+        const dispatcher = connection.play(ytdl(args[1]))
         .on('finish' , () => {
             voiceChannel.leave()
 
