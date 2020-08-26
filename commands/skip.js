@@ -20,6 +20,7 @@ module.exports = {
         var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
                 play(msg.guild, queueConstruct.songs[0])
+                
         const dispatcher = serverQueue.connection.play(ytdl(song.url))
                 .on('finish' , () => {
                     serverQueue.songs.shift()

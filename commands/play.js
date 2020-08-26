@@ -23,8 +23,8 @@ module.exports = {
 
         const songInfo = await ytdl.getInfo(args[1])
         const song = {
-            title: songInfo.title,
-            url: songInfo.video_url,
+            title: songInfo.videoDetails.title,
+            url: songInfo.videoDetails.video_url,
 
             
             
@@ -46,6 +46,7 @@ module.exports = {
                 var connection = await voiceChannel.join()
                 queueConstruct.connection = connection
                 play(msg.guild, queueConstruct.songs[0])
+                
             } catch(error){
                 console.log(`There was an error connecting to voice channel: ${error}`)
                 queue.delete(msg.guild.id)
