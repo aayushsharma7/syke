@@ -23,7 +23,7 @@ module.exports = {
 
         try{
             console.log(searchString)
-            var video = await youtube.getVideo(url)
+            var video = await youtube.getVideo(searchString)
 
         } catch {
             try{
