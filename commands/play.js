@@ -10,8 +10,7 @@ module.exports = {
     description: "says play!",
     execute: async (msg, args) => {
         if(msg.author.bot) return
-        const searchString = args.slice(1).join(' ')
-        const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
+        const serverQueue = queue.get(msg.guild.id)
 
         
         
@@ -21,43 +20,65 @@ module.exports = {
         if(!permissions.has('CONNECT')) return msg.channel.send("I DONT HAVE PERMISSION TO JOIN THE VOICECHANNEL")
         if(!permissions.has('SPEAK')) return msg.channel.send("I DONT HAVE PERMISSIONS TO SPEAK IN THIS CHANNEL")
 
-        try{
+        const songInfo = await ytdl.getInfo(args[1])
+        const song = {
+            title: songInfo.title,
+            url: songInfo.video_url,
+
             
-            var video = await youtube.getVideo(url)
+            
+        }
 
-        } catch {
-            try{
-                var videos = await youtube.searchVideos(searchString, 1);
-                var video = await youtube.getVideoByID(videos[0].id);
-
-            } catch {
-                return msg.channel.send('I could not find any results')
+        if(!serverQueue){
+            const queueConstruct = {
+                textChannel: msg.channel,
+                voiceChannel: voiceChannel,
+                connection: null,
+                songs: [],
+                volume: 5,
+                playing: true,
             }
-        }
+            queue.set(msg.guild.id, queueConstruct)
+            queueConstruct.songs.push(song)
 
+            try{
+                var connection = await voiceChannel.join()
+                queueConstruct.connection = connection
+                play(msg.guild, queueConstruct.songs[0])
+            } catch(error){
+                console.log(`There was an error connecting to voice channel: ${error}`)
+                queue.delete(msg.guild.id)
+                return msg.channel.send(`There was an error connecting to the voice channel: ${error}`)
+                 
+            } 
+
+        } else{
+            serverQueue.songs.push(song)
+            return msg.channel.send(`**${song.title}** has been added to the queue`)
+        }
+        return undefined
+    }
+}
         
+        function play(song, guild){
+           const serverQueue = queue.get(guild.id)
 
-        try{
-            var connection = await voiceChannel.join()
-
-
-        } catch(error){
-            console.log(`There was an error connecting to voice channel: ${error}`)
-            return msg.channel.send(`There was an error connecting to the voice channel: ${error}`)
-
-
-        }
-        const dispatcher = connection.play(ytdl(args[1]))
+           if(!song){
+               serverQueue.voiceChannel.leave()
+               queue.delete(guild.id)
+               return
+           }
+           const dispatcher = serverQueue.connection.play(ytdl(song.url))
         .on('finish' , () => {
-            voiceChannel.leave()
+            serverQueue.songs.shift()
+            play(guild.serverQueue.songs[0])
+
 
         })
         .on('error', error =>{
             console.log(error)
         })
-        dispatcher.setVolumeLogarithmic(5 / 5)
-
-       } 
-
+        dispatcher.setVolumeLogarithmic(serverQueue.volume / 5)
        }
+    
 

@@ -11,6 +11,7 @@ const { inspect } = require('util');
 const ytdl = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
+const queue = new Map()
 
 
 
@@ -32,6 +33,8 @@ const request = require('request')
 
 
 const PREFIX = '?';
+
+
 
 
 
@@ -124,7 +127,12 @@ bot.on('message', msg => {
             break;
         case 'stop':
             bot.commands.get('stop').execute(msg, args);
-            break;    
+            break;
+        case 'skip':
+            bot.commands.get('skip').execute(msg, args);
+            break;
+
+        
 
         case 'av':
             bot.commands.get('av').execute(msg, args);
