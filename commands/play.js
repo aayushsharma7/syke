@@ -3,7 +3,7 @@ const {Client, Attachment, MessageEmbed} = require('discord.js');
 const bot = new Client();
 const ytdl = require('ytdl-core');
 const YouTube = require('simple-youtube-api');
-const youtube = new YouTube("AIzaSyDXFBtGGGPm25U63-kI6BRazRmmwmmYiMo")
+
 const queue = new Map();
 const PREFIX = '?';
 
@@ -97,7 +97,7 @@ module.exports = {
 
         
         function play(song, guild){
-           const serverQueue = queue.get(guild.id)
+           const serverQueue = bot.queue.get(guild.id)
 
            if(!song){
                serverQueue.voiceChannel.leave()
