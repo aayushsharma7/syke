@@ -24,10 +24,7 @@ module.exports = {
         
             
 
-            const song = {
-                title: songInfo.videoDetails.title,
-                url: songInfo.videoDetails.video_url, 
-            }
+            
             if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to skip")
                 if(!serverQueue) return msg.channel.send("There is nothing playing")
                 serverQueue.connection.dispatcher.end()
