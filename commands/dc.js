@@ -13,7 +13,7 @@ module.exports = {
         const voiceChannel = msg.member.voice.channel
         if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to disconnect ")
         msg.member.voice.channel.leave()
-        return undefined
+        return msg.channel.send("Disconnected from the voice channel")
         
 
         
