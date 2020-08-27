@@ -8,8 +8,8 @@ module.exports = {
     execute(msg, args){
         const user = msg.mentions.users.first();
 
-        if(!msg.member.roles.cache.find(r => r.name === "Owner") && !msg.member.roles.cache.find(r => r.name === "Admin") && !msg.member.roles.cache.find(r => r.name === "Head Admin")) return msg.channel.send('**YOU DO NOT HAVE THE PERMISSIONS TO DO THAT!**')
-          
+        if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Don't have Permissions to do this Command**")
+        if(!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Don't have permission to Kick Members**")
 
 
             if (user) {
