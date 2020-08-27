@@ -40,7 +40,7 @@ module.exports = {
             queueConstruct.songs.push(song)
 
             try{
-                var connection = await voiceChannel.join()
+                let connection = await voiceChannel.join()
                 queueConstruct.connection = connection
                 play(msg.guild, queueConstruct.songs[0])
                 
