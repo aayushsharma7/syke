@@ -98,6 +98,7 @@ module.exports = {
         
         function play(song, guild){
            const serverQueue = queue.get(guild.id)
+           console.log.serverQueue
 
            if(!song){
                serverQueue.voiceChannel.leave()
