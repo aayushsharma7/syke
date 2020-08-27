@@ -14,7 +14,7 @@ module.exports = {
 
         if(msg.author.bot) return
 
-        if(msg.content.startsWith(`${PREFIX}play`)){
+    
 
         const serverQueue = queue.get(msg.guild.id)
 
@@ -76,7 +76,7 @@ module.exports = {
 
 }
     
-    }
+
 
 
         
