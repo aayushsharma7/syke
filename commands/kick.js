@@ -7,13 +7,14 @@ module.exports = {
     description: "says kick!",
     execute(msg, args){
         const user = msg.mentions.users.first();
+        const member = msg.guild.member(user);
 
         if(!msg.member.hasPermission("KICK_MEMBERS")) return msg.channel.send("**You Don't have Permissions to do this Command**")
         if(!msg.guild.me.hasPermission("KICK_MEMBERS")) return msg.channel.send("**I Don't have permission to Kick Members**")
 
 
             if (user) {
-                const member = msg.guild.member(user);
+                
 
                 if (member) {
                     member.kick('You were kicked from the server').then(() => {
