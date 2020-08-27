@@ -21,8 +21,7 @@ module.exports = {
             playing: true,
         }
         
-            const connection = await voiceChannel.join()
-            queueConstruct.connection = connection
+            
 
             const song = {
                 title: songInfo.videoDetails.title,
