@@ -13,13 +13,8 @@ module.exports = {
     execute: async (msg, args) => {
 
         if(msg.author.bot) return
-
-    
-
         const serverQueue = queue.get(msg.guild.id)
 
-        
-        
         const voiceChannel = msg.member.voice.channel
         if(!voiceChannel) return msg.channel.send("You need to be in a voice channel!")
         const permissions = voiceChannel.permissionsFor(msg.client.user)
@@ -29,10 +24,7 @@ module.exports = {
         const songInfo = await ytdl.getInfo(args[1])
         const song = {
             title: songInfo.videoDetails.title,
-            url: songInfo.videoDetails.video_url,
-
-            
-            
+            url: songInfo.videoDetails.video_url,  
         }
 
         if(!serverQueue){
@@ -64,22 +56,9 @@ module.exports = {
             return msg.channel.send(`**${song.title}** has been added to the queue`)
         }
         return undefined
-        
-    
-
-
 } 
 
-
-
-
-
 }
-    
-
-
-
-        
         function play(song, guild){
            const serverQueue = queue.get(guild.id)
            console.log(serverQueue)
