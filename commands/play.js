@@ -66,33 +66,17 @@ module.exports = {
         return undefined
         
     
-} else if(msg.content.startsWith(`${PREFIX}stop`)){
-    if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to stop the music")
-        if(!serverQueue) return msg.channel.send("THERE IS NOTHING PLAYING")
-        serverQueue.songs = []
-        serverQueue.connection.dispatcher.end()
-        msg.channel.send("I have stopped the music for you")
 
 
-        return undefined
+} 
 
-} else if(msg.content.startsWith(`${PREFIX}skip`)){
-    if(!msg.member.voice.channel) return msg.channel.send("You need to be in a voice channel to skip")
-                if(!serverQueue) return msg.channel.send("There is nothing playing")
-                serverQueue.connection.dispatcher.end()
-                msg.channel.send("Skipped the song")
-                return undefined
+
+
+
 
 }
-
-
-
-
-
-
-    }
     
-}
+    }
 
 
         
