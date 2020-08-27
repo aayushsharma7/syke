@@ -125,7 +125,9 @@ bot.on('message', msg => {
         case 'skip':
             bot.commands.get('skip').execute(msg, args);
             break;   
-
+            case 'dc':
+                bot.commands.get('dc').execute(msg, args);
+                break; 
 
         
 
