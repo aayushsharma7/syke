@@ -6,14 +6,20 @@ module.exports = {
     description: "says ban!",
     execute(msg, args){
         const user = msg.mentions.users.first();
+        const member = msg.guild.member(user);
 
-        if(!msg.member.roles.cache.find(r => r.name === "Owner")&& !msg.member.roles.cache.find(r => r.name === "Admin") && !msg.member.roles.cache.find(r => r.name === "Head Admin")&& !msg.member.roles.cache.find(r => r.name === "Hotel manager")) return msg.channel.send('**YOU DO NOT HAVE THE PERMISSIONS TO DO THAT!**')
-
+        if(!msg.member.hasPermission("BAN_MEMBERS")) return msg.channel.send("**You Do not have Permissions to do this Command**")
+        if(!msg.guild.me.hasPermission("BAN_MEMBERS")) return msg.channel.send("**I Don not have permission to Kick Members**")
+        
         if(user){
-            const member = msg.guild.member(user);
+            
         
         
              if (member) {
+                if(member.id === msg.author.id) return msg.channel.send("**Why Would You Want to Ban Yourself **")
+                if(member.roles.highest.position >= msg.member.roles.highest.position || msg.author.id !== msg.guild.owner.id)
+                return msg.channel.send("**I Can't ban this member due to his role being higher than mine.**")
+
                  member.ban({ression: 'you were bad!'}).then(() =>{
                     const embed = new Discord.MessageEmbed()
                     .setAuthor(msg.guild.name, msg.guild.iconURL())
