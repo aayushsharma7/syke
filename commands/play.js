@@ -41,7 +41,7 @@ module.exports = {
 
             try{
                 let connection = await voiceChannel.join()
-                queueConstruct.connection = connection
+                
                 play(msg.guild, queueConstruct.songs[0])
                 
             } catch(error){
