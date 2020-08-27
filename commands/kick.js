@@ -17,6 +17,9 @@ module.exports = {
                 
 
                 if (member) {
+                    if(member.id === msg.author.id) return msg.channel.send("**Why Would You Want to Kick Yourself **")
+                    if(member.roles.highest.position >= message.member.roles.highest.position || msg.author.id !== msg.guild.owner.id) 
+                        return msg.channel.send("**I Can't kick this member due to his role being higher than mine.**")
                     member.kick('You were kicked from the server').then(() => {
                         
         const embed = new Discord.MessageEmbed()
